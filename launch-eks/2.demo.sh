@@ -33,3 +33,25 @@ data:
 root@aws-client:~/amazon-elastic-kubernetes-service-course/eks# 
 
 
+root@aws-client:~/amazon-elastic-kubernetes-service-course/eks# cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+EOF
+pod/nginx created
+root@aws-client:~/amazon-elastic-kubernetes-service-course/eks# 
+root@aws-client:~/amazon-elastic-kubernetes-service-course/eks# 
+root@aws-client:~/amazon-elastic-kubernetes-service-course/eks# k get pods
+NAME    READY   STATUS    RESTARTS   AGE
+nginx   1/1     Running   0          6s
+root@aws-client:~/amazon-elastic-kubernetes-service-course/eks# 
+
